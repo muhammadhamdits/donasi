@@ -1,69 +1,112 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
-  <!-- summernote -->
-  <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.css') }}">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" type="image/png" href="{{ asset('img/favicon.png')}}">
+	<title>Kare Charity</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}">
+	<link rel="stylesheet" href="{{ asset('vendors/linericon/style.css')}}">
+	<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{ asset('vendors/lightbox/simpleLightbox.css')}}">
+	<link rel="stylesheet" href="{{ asset('vendors/nice-select/css/nice-select.css')}}">
+	<link rel="stylesheet" href="{{ asset('vendors/animate-css/animate.css')}}">
+	<link rel="stylesheet" href="{{ asset('vendors/jquery-ui/jquery-ui.css')}}">
+	<!-- main css -->
+	<link rel="stylesheet" href="{{ asset('css/style.css')}}">
+	<link rel="stylesheet" href="{{ asset('css/responsive.css')}}">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
 
-@yield('content')
+<body>
+	@yield('content')
 
-<!-- jQuery -->
-<script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('plugins/chart.js/Chart.min.js')}}"></script>
-<!-- Sparkline -->
-<script src="{{ asset('plugins/sparklines/sparkline.js')}}"></script>
-<!-- JQVMap -->
-<script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
-<!-- daterangepicker -->
-<script src="{{ asset('plugins/moment/moment.min.js')}}"></script>
-<script src="{{ asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
-<!-- Summernote -->
-<script src="{{ asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('dist/js/adminlte.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('dist/js/demo.js')}}"></script>
+	<!--================ Start Footer Area  =================-->
+	<footer class="footer-area section_gap">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5  col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 class="footer_title">About Me</h6>
+						<p>
+							Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills,
+						</p>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-6 col-sm-6">
+					<div class="single-footer-widget">
+						<h6 class="footer_title">Newsletter</h6>
+						<p>Stay updated with our latest trends</p>
+						<div id="mc_embed_signup">
+							<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+							 method="get" class="subscribe_form relative">
+								<div class="input-group d-flex flex-row">
+									<input name="EMAIL" placeholder="Enter Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '"
+									 required="" type="email">
+									<button class="btn sub-btn">
+										<span class="lnr lnr-arrow-right"></span>
+									</button>
+								</div>
+								<div class="mt-10 info"></div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-6 col-sm-6">
+					<div class="single-footer-widget f_social_wd">
+						<h6 class="footer_title">Follow Us</h6>
+						<p>Let us be social</p>
+						<div class="f_social">
+							<a href="#">
+								<i class="fa fa-facebook"></i>
+							</a>
+							<a href="#">
+								<i class="fa fa-twitter"></i>
+							</a>
+							<a href="#">
+								<i class="fa fa-dribbble"></i>
+							</a>
+							<a href="#">
+								<i class="fa fa-behance"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--================ End Footer Area  =================-->
+
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="{{ asset('js/jquery-3.2.1.min.js')}}"></script>
+	<script src="{{ asset('js/popper.js')}}"></script>
+	<script src="{{ asset('js/bootstrap.min.js')}}"></script>
+	<script src="{{ asset('vendors/lightbox/simpleLightbox.min.js')}}"></script>
+	<script src="{{ asset('vendors/nice-select/js/jquery.nice-select.min.js')}}"></script>
+	<script src="{{ asset('vendors/isotope/imagesloaded.pkgd.min.js')}}"></script>
+	<script src="{{ asset('vendors/isotope/isotope-min.js')}}"></script>
+	<script src="{{ asset('vendors/owl-carousel/owl.carousel.min.js')}}"></script>
+	<script src="{{ asset('js/jquery.ajaxchimp.min.js')}}"></script>
+	<script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js')}}"></script>
+	<script src="{{ asset('vendors/flipclock/timer.js')}}"></script>
+	<script src="{{ asset('vendors/counter-up/jquery.counterup.js')}}"></script>
+	<script src="{{ asset('js/mail-script.js')}}"></script>
+	<script src="{{ asset('js/custom.js')}}"></script>
 </body>
+
 </html>
