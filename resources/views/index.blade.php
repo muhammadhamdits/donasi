@@ -113,82 +113,60 @@
       </div>
 
       <div class="donate_now_wrapper">
-        <form>
+        <form enctype="multipart/form-data">
+			@csrf
           <div class="row">
-            <div class="col-lg-4">
-              <div class="donate_box mb-30">
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="donation" id="ten_doller">
-                  <label class="form-check-label d-flex justify-content-between" for="ten_doller">
-                    <div class="label_text">
-                      $10.00
-                    </div>
-                    <div class="label_text">
-                      USD
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
 
-            <div class="col-lg-4">
-              <div class="donate_box mb-30">
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="donation" id="fifty_doller">
-                  <label class="form-check-label d-flex justify-content-between" for="fifty_doller">
-                    <div class="label_text">
-                      $50.00
-                    </div>
-                    <div class="label_text">
-                      USD
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="donate_box mb-30">
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="donation" id="hundred_doller">
-                  <label class="form-check-label d-flex justify-content-between" for="hundred_doller">
-                    <div class="label_text">
-                      $100.00
-                    </div>
-                    <div class="label_text">
-                      USD
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="donate_box">
-                <div class="form-check">
-                  <input type="radio" class="form-check-input" name="donation" id="two_fifty__doller">
-                  <label class="form-check-label d-flex justify-content-between" for="two_fifty__doller">
-                    <div class="label_text">
-                      $250.00
-                    </div>
-                    <div class="label_text">
-                      USD
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
+            <div class="col-lg-6 mb-4">
               <div class="donate_box">
                 <div class="form-group">
-                  <input type="text" placeholder="Others" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Others'" class="form-control">
-                  <span class="fs-14">USD</span>
+                  <input type="text" placeholder="Nama" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama'" class="form-control" name="nama" required>
+                  <span class="fs-14"><i class="fa fa-user"></i></span>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-4">
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+                <div class="form-group">
+                  <input type="text" placeholder="E-Mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail'" class="form-control" name="email" required>
+                  <span class="fs-14"><i class="fa fa-envelope"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+                <div class="form-group">
+                  <input type="text" placeholder="Jumlah" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Jumlah'" class="form-control" pattern="[0-9]" name="jumlah" required>
+                  <span class="fs-14">Rp</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+                <div class="form-group">
+				<input type="file" name="bukti_transfer" id="bukti_transfer" hidden required>
+				<input type="text" placeholder="Bukti Transfer" class="form-control" id="buktitransfer" required>
+                  <span class="fs-14"><i class="fa fa-file"></i></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+			  	<div class="switch-wrap d-flex justify-content-center bd-highlight">
+					<div class="confirm-switch">
+						<input type="checkbox" id="confirm-switch" checked="">
+						<label for="confirm-switch"></label>
+					</div>
+					<p class="ml-3">Sembunyikan nama anda</p>
+				</div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
               <div class="donate_box">
                 <button type="submit" class="main_btn w-100">donate now</button>
               </div>
@@ -230,4 +208,17 @@
 		</div>
 	</section>
 	<!--================ Ens Our Major Cause section =================-->
+@endsection
+
+@section('js')
+	<script>
+		$("#buktitransfer").click(function(){
+			$("#bukti_transfer").click();
+		});
+
+		$("#bukti_transfer").change(function(){
+			let filename = $("#bukti_transfer").val().split("\\").pop();
+			$("#buktitransfer").val(filename);
+		});
+	</script>
 @endsection

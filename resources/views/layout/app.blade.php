@@ -107,6 +107,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{{ asset('vendors/counter-up/jquery.counterup.js')}}"></script>
 	<script src="{{ asset('js/mail-script.js')}}"></script>
 	<script src="{{ asset('js/custom.js')}}"></script>
+	@yield('js')
 </body>
 
 </html>
