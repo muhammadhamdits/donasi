@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', 'TransaksiController@index')->name('home');
 
 Route::post('/donate/store/', 'TransaksiController@store')->name('transaksi');
+
+Auth::routes();
+
+Route::get('/home', 'TransaksiController@home')->name('admin.home');
+Route::post('/accept/{id}/{status}', 'TransaksiController@accept')->name('admin.accept');

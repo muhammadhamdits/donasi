@@ -15,7 +15,9 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        //
+        $data = Transaksi::where('status', 1)->get();
+        // dd($data);
+        return view('index', ['data' => $data]);
     }
 
     /**
@@ -62,7 +64,7 @@ class TransaksiController extends Controller
             //  $transaksi ->anonim = $request->anonim;
              $transaksi ->anonim = $anon;
              $transaksi ->tanggal = $date;
-             $transaksi ->bukti_transfer = $path;
+             $transaksi ->bukti_transfer = "bukti/".$newName;
          $transaksi->save();
  
          return redirect()->back();
@@ -111,5 +113,20 @@ class TransaksiController extends Controller
     public function destroy(Transaksi $transaksi)
     {
         //
+    }
+
+    public function home()
+    {
+        $data = Transaksi::all();
+        return view('admin.index', ['data' => $data]);
+    }
+
+    public function accept($id, $status)
+    {
+        $data = Transaksi::findOrFail($id);
+
+        $data->status = $status;
+        $data->update();
+        return redirect(route('admin.home'));
     }
 }

@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="{{ asset('vendors/nice-select/css/nice-select.css')}}">
 	<link rel="stylesheet" href="{{ asset('vendors/animate-css/animate.css')}}">
 	<link rel="stylesheet" href="{{ asset('vendors/jquery-ui/jquery-ui.css')}}">
+	<!-- Datatable CSS -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/v/se-2.2.13/dt-1.10.20/datatables.min.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="{{ asset('css/style.css')}}">
 	<link rel="stylesheet" href="{{ asset('css/responsive.css')}}">
@@ -107,6 +109,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{{ asset('vendors/counter-up/jquery.counterup.js')}}"></script>
 	<script src="{{ asset('js/mail-script.js')}}"></script>
 	<script src="{{ asset('js/custom.js')}}"></script>
+	<script src="https://cdn.datatables.net/v/se-2.2.13/dt-1.10.20/datatables.min.js"></script>
 	@yield('js')
 </body>
 
