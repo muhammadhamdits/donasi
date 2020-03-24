@@ -117,7 +117,7 @@
       </div>
 
       <div class="donate_now_wrapper">
-        <form enctype="multipart/form-data">
+        <form action={{route('transaksi')}} method='post' enctype="multipart/form-data">
 			@csrf
           <div class="row">
 
@@ -142,32 +142,32 @@
             <div class="col-lg-6 mb-4">
               <div class="donate_box">
                 <div class="form-group">
-                  <input type="text" placeholder="Jumlah" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Jumlah'" class="form-control" pattern="[0-9]" name="jumlah" required>
+                  <input type="number" placeholder="Jumlah" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Jumlah' " class="form-control" name="jumlah" required>
                   <span class="fs-14">Rp</span>
                 </div>
               </div>
             </div>
 
             <div class="col-lg-6 mb-4">
-              <div class="donate_box">
-                <div class="form-group">
-				<input type="file" name="bukti_transfer" id="bukti_transfer" hidden required>
-				<input type="text" placeholder="Bukti Transfer" class="form-control" id="buktitransfer" required>
-                  <span class="fs-14"><i class="fa fa-file"></i></span>
-                </div>
-              </div>
+              	<div class="donate_box">
+                	<div class="form-group">
+						<input type="file" name="bukti_transfer" id="bukti_transfer" hidden required>
+						<input type="text" placeholder="Bukti Transfer" class="form-control" id="buktitransfer" required>
+						<span class="fs-14"><i class="fa fa-file"></i></span>
+					</div>
+				</div>
             </div>
 
             <div class="col-lg-6 mb-4">
-              <div class="donate_box">
-			  	<div class="switch-wrap d-flex justify-content-center bd-highlight">
-					<div class="confirm-switch">
-						<input type="checkbox" id="confirm-switch" checked="">
-						<label for="confirm-switch"></label>
+              	<div class="donate_box">
+					<div class="switch-wrap d-flex justify-content-center bd-highlight">
+						<div class="confirm-switch">
+							<input type="checkbox" name="anonim" id="confirm-switch">
+							<label for="confirm-switch"></label>
+						</div>
+						<p class="ml-3">Sembunyikan nama anda</p>
 					</div>
-					<p class="ml-3">Sembunyikan nama anda</p>
-				</div>
-              </div>
+            	</div>
             </div>
 
             <div class="col-lg-6 mb-4">
