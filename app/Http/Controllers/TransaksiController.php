@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TransaksiController extends Controller
 {
@@ -35,7 +36,36 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         Storage::putFile('public/bukti', $request->file('bukti_transfer'));
+        
+         //Path
+         $file = $request->file('bukti_transfer');
+         $fileName = time();
+         $fileExtension = $file->getClientOriginalExtension();
+         $newName = $fileName . '.' . $fileExtension; 
+         $path = $request->file('bukti_transfer')->storeAs('public/bukti', $newName);
+        // dd($path);
+
+        //anon value
+        $anon = 0;
+        if ($request->anonim == 'on') {
+            $anon = 1;
+        }
+
+         //Store DB
+         $date = date('Y-m-d ');
+         $transaksi = new Transaksi;
+             $transaksi ->nama = $request->nama;
+             $transaksi ->email = $request->email;
+             $transaksi ->jumlah = $request->jumlah;
+             $transaksi ->status = 0;
+            //  $transaksi ->anonim = $request->anonim;
+             $transaksi ->anonim = $anon;
+             $transaksi ->tanggal = $date;
+             $transaksi ->bukti_transfer = $path;
+         $transaksi->save();
+ 
+         return redirect()->back();
     }
 
     /**
