@@ -3244,3 +3244,18 @@ h6 {
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
+
+/* Costom CSS */
+
+.ikon {
+  font-size: 48px;
+  transition: all 300ms linear 0s;
+}
+
+.ikon:hover {
+  color: green;
+}
+
+html{
+  scroll-behavior: smooth;
+}

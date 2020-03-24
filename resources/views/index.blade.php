@@ -7,7 +7,7 @@
 			<nav class="navbar navbar-expand-lg navbar-light">
 				<div class="container">
 					<!-- Brand and toggle get grouped for better mobile display -->
-					<a class="navbar-brand logo_h" href="index.html">
+					<a class="navbar-brand logo_h" href="{{ route('home') }}">
 						<img src="img/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -19,19 +19,19 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<div class="row ml-0 w-100">
-							<div class="col-lg-12 pr-0">
+							<div class="col-lg-12 pr-0" id="navbar">
 								<ul class="nav navbar-nav center_nav pull-right">
 									<li class="nav-item active">
-										<a class="nav-link" href="index.html">Home</a>
+										<a class="nav-link" href="#home">Home</a>
 									</li>
 									<li class="nav-item ">
-										<a class="nav-link" href="causes.html">Overview</a>
+										<a class="nav-link" href="#overview">Overview</a>
 									</li>
 									<li class="nav-item ">
-										<a class="nav-link" href="events.html">Report</a>
+										<a class="nav-link" href="#report">Report</a>
 									</li>
 									<li class="nav-item">
-										<a class="main_btn" href="donation.html">donate now</a>
+										<a class="main_btn" href="#donate">donate now</a>
 									</li>
 								</ul>
 							</div>
@@ -44,7 +44,7 @@
 	<!--================Header Menu Area =================-->
 
 	<!--================ Home Banner Area =================-->
-	<section class="home_banner_area">
+	<section class="home_banner_area" id="home">
 		<div class="overlay"></div>
 		<div class="banner_inner d-flex align-items-center">
 			<div class="container">
@@ -64,35 +64,39 @@
 
 
 	<!--================ Start important-points section =================-->
-	<section class="donation_details pad_top">
+	<section class="donation_details pad_top" id="overview">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home1.png" alt="">
-					<h4>Total Donation</h4>
+					<i class="fa fa-line-chart ikon"></i>
+					<h4>Total Donasi</h4>
+					<h3>367</h3>
 					<p>
-						The French Revolutioncons tituted for the conscience of the dominant.
+						Donatur 
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home2.png" alt="">
-					<h4>Fund Raised</h4>
+					<i class="fa fa-money ikon"></i>
+					<h4>Dana Terkumpulkan</h4>
+					<h3>367</h3>
 					<p>
-						The French Revolutioncons tituted for the conscience of the dominant.
+						Rupiah
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home3.png" alt="">
-					<h4>Highest Donation</h4>
+					<i class="fa fa-users ikon"></i>
+					<h4>Donasi Hari Ini</h4>
+					<h3>367</h3>
 					<p>
-						The French Revolutioncons tituted for the conscience of the dominant.
+						Donatur
 					</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<img src="img/icons/home4.png" alt="">
-					<h4>Total Donation</h4>
+					<i class="fa fa-thumbs-up ikon"></i>
+					<h4>Dana Hari Ini</h4>
+					<h3>367</h3>
 					<p>
-						The French Revolutioncons tituted for the conscience of the dominant.
+						Rupiah
 					</p>
 				</div>
 			</div>
@@ -101,7 +105,7 @@
 	<!--================ End important-points section =================-->
 
   <!--================ Start Make Donation Area =================-->
-  <section class="make_donation section_gap">
+  <section class="make_donation section_gap" id="donate">
     <div class="container">
       <div class="row justify-content-start section-title-wrap">
         <div class="col-lg-12">
@@ -179,7 +183,7 @@
   <!--================ End Make Donation Area =================-->
 
 	<!--================ Start Our Major Cause section =================-->
-	<section class="our_major_cause section_gap">
+	<section class="our_major_cause section_gap" id="report">
 		<div class="container">
 			<div class="row justify-content-center section-title-wrap">
 				<div class="col-lg-12">
@@ -219,6 +223,22 @@
 		$("#bukti_transfer").change(function(){
 			let filename = $("#bukti_transfer").val().split("\\").pop();
 			$("#buktitransfer").val(filename);
+		});
+
+		$(window).scroll(function(){
+			var scrollPos = $(document).scrollTop();
+			$('#navbar a').each(function () {
+				var currLink = $(this);
+				var refElement = $(currLink.attr("href"));
+				console.log(currLink);
+				if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+					$('#navbar ul li').removeClass("active");
+					currLink.parent().addClass("active");
+				}
+				else{
+					currLink.removeClass("active");
+				}
+			});
 		});
 	</script>
 @endsection
