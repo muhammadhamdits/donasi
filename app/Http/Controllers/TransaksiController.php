@@ -6,6 +6,7 @@ use Mail;
 use App\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Hash;
 
 class TransaksiController extends Controller
 {
@@ -137,5 +138,24 @@ class TransaksiController extends Controller
             $message->from(env('MAIL_USERNAME'), "Universitas Andalas");
         });
         return redirect(route('admin.home'));
+    }
+
+    public function changepass()
+    {
+        return view('auth/change');
+    }
+
+    public function passchange(Request $request)
+    {
+        $user = auth()->user();
+        if(Hash::check($request->oldpass, $user->password)){
+            $user->password = Hash::make($request->newpass);
+            $user->update();
+            
+            return redirect(route('admin.home'));
+        }else{
+            return redirect()->back()->withErrors(['oldpass', 'Password lama tidak sesuai']);;
+        }
+        // dd($request->all());
     }
 }

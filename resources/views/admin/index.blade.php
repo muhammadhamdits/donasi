@@ -22,6 +22,9 @@
 							<div class="col-lg-12 pr-0" id="navbar">
 								<ul class="nav navbar-nav center_nav pull-right">
                                     <li class="nav-item ">
+										<a class="nav-link" href="{{ route('admin.pass') }}" >Ganti Password</a>
+									</li>
+                                    <li class="nav-item ">
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
                                             <a class="nav-link" href="#" id="logout">Logout</a>
