@@ -47,8 +47,7 @@
 				<div class="col-lg-12">
 					<h1>Laporan Donasi</h1>
 					<p>
-						The French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence the natural
-						chain of events.
+						Laporan donasi yang diinputkan oleh user
 					</p>
 				</div>
 			</div>

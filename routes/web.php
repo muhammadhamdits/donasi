@@ -19,5 +19,5 @@ Route::post('/donate/store/', 'TransaksiController@store')->name('transaksi');
 
 Auth::routes();
 
-Route::get('/home', 'TransaksiController@home')->name('admin.home');
-Route::post('/accept/{id}/{status}', 'TransaksiController@accept')->name('admin.accept');
+Route::get('/home', 'TransaksiController@home')->name('admin.home')->middleware('auth');
+Route::post('/accept/{id}/{status}', 'TransaksiController@accept')->name('admin.accept')->middleware('auth');

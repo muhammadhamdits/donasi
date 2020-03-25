@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Mail;
 use App\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -67,7 +68,7 @@ class TransaksiController extends Controller
              $transaksi ->bukti_transfer = "bukti/".$newName;
          $transaksi->save();
  
-         return redirect()->back();
+         return redirect(route('home'));
     }
 
     /**
@@ -127,6 +128,14 @@ class TransaksiController extends Controller
 
         $data->status = $status;
         $data->update();
+
+        $to_name = $data->nama;
+        $to_email = $data->email;
+        $data = ['name' => $data->nama, 'jumlah' => "Rp ".number_format($data->jumlah,2,',','.')];
+        Mail::send("emails.mail", $data, function($message) use ($to_name, $to_email) {
+            $message->to($to_email, $to_name)->subject("Terimakasih atas donasi anda");
+            $message->from(env('MAIL_USERNAME'), "Universitas Andalas");
+        });
         return redirect(route('admin.home'));
     }
 }

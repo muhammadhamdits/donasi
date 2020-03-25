@@ -5,8 +5,8 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" type="image/png" href="{{ asset('img/favicon.png')}}">
-	<title>Kare Charity</title>
+	<link rel="icon" type="image/png" href="{{ asset('unand.png') }}">
+	<title>Donasi Unand</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="{{ asset('css/bootstrap.css')}}">
 	<link rel="stylesheet" href="{{ asset('vendors/linericon/style.css')}}">
@@ -32,9 +32,9 @@
 			<div class="row">
 				<div class="col-lg-5  col-md-6 col-sm-6">
 					<div class="single-footer-widget">
-						<h6 class="footer_title">About Me</h6>
+						<h6 class="footer_title">About US</h6>
 						<p>
-							Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills,
+							Universitas Andalas
 						</p>
 					</div>
 				</div>

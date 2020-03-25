@@ -25,16 +25,16 @@
 										<a class="nav-link" href="#home">Home</a>
 									</li>
 									<li class="nav-item ">
-										<a class="nav-link" href="#overview">Overview</a>
+										<a class="nav-link" href="#overview">Statistik</a>
 									</li>
 									<li class="nav-item ">
-										<a class="nav-link" href="#report">Report</a>
+										<a class="nav-link" href="#report">Laporan</a>
 									</li>
 									<li class="nav-item ">
 										<a class="nav-link" href="{{ route('login') }}">Admin</a>
 									</li>
 									<li class="nav-item">
-										<a class="main_btn" href="#donate">donate now</a>
+										<a class="main_btn" href="#donate">Donasikan Sekarang</a>
 									</li>
 								</ul>
 							</div>
@@ -53,10 +53,10 @@
 			<div class="container">
 				<div class="banner_content row">
 					<div class="offset-lg-2 col-lg-8">
-						<p style="text-shadow: 3px 3px 5px #000; font-size: 20px"><b>Pandemi Covid-19 sudah membahayakan kesehatan seluruh dunia. Donasikan uang anda agar membantu penanganan Covid-19 agar lebih baik lagi ke rekening berikut.</b></p>
+						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b style="color: white">Pandemi Covid-19 sudah membahayakan kesehatan seluruh dunia. Donasikan uang anda agar membantu penanganan Covid-19 agar lebih baik lagi ke rekening berikut.</b></p>
 						<p>111111111111</p>
-						<a class="main_btn mr-10" href="#donate">donate now</a>
-						<a class="white_bg_btn" href="#report">view activity</a>
+						<a class="main_btn mr-10" href="#donate">Donasikan Sekarang</a>
+						<a class="white_bg_btn" href="#report">Lihat Laporan</a>
 					</div>
 				</div>
 			</div>
@@ -111,9 +111,9 @@
     <div class="container">
       <div class="row justify-content-start section-title-wrap">
         <div class="col-lg-12">
-          <h1>Make a Donation Today</h1>
+          <h1>Ayo Berdonasi Hari Ini</h1>
           <p>
-            Las Vegas has more than 100,000 hotel rooms to choose from. There is something for every budget, and enough.
+            Kirimkan donasi anda ke nomor rekening <b style="color: black">Nomor Rekening a.n Rektor Unand</b>, lalu masukkan informasi donasi anda dan bukti transfer pada form di bawah ini.
           </p>
         </div>
       </div>
@@ -191,8 +191,7 @@
 				<div class="col-lg-12">
 					<h1>Laporan Donasi</h1>
 					<p>
-						The French Revolution constituted for the conscience of the dominant aristocratic class a fall from innocence the natural
-						chain of events.
+						Untuk transparansi kegiatan donasi, catatan setiap donasi dapat dilihat pada tabel di bawah ini.
 					</p>
 				</div>
 			</div>
@@ -212,7 +211,13 @@
 						@foreach($data as $d)
 							<tr>
 								<td>{{ $loop->iteration }}</td>
-								<td>{{ $d->nama }}</td>
+								<td>
+									@if($d->anonim == 0)
+									{{ $d->nama }}
+									@else
+									Nama Disamarkan
+									@endif
+								</td>
 								<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
 								<td>{{ tgl_indo($d->tanggal) }}</td>
 							</tr>
