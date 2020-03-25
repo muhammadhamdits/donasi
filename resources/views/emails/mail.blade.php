@@ -1,4 +1,4 @@
-Hello <strong>{{ $name }}</strong>,
+Hallo <strong>{{ $name }}</strong>,
 <p>
     Terimakasih atas donasi anda sebanyak {{ $jumlah }}, semoga dapat membantu perjuangan melawan Covid-19.
 </p>

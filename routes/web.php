@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'TransaksiController@index')->name('home');
+Route::get('/terima_kasih', 'TransaksiController@terima_kasih')->name('terima_kasih');
 
 Route::post('/donate/store/', 'TransaksiController@store')->name('transaksi');
 

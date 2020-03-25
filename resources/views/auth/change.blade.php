@@ -30,7 +30,7 @@
 					</div>
 				</div>
 			</nav>
-		</div>
+    </div>
 	</header>
     <!--================Header Menu Area =================-->
     
@@ -115,6 +115,7 @@
     </div>
   </section>
   <!--================ End Make Donation Area =================-->
+
 @endsection
 
 @section('js')

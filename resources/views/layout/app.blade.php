@@ -21,6 +21,8 @@
 	<!-- main css -->
 	<link rel="stylesheet" href="{{ asset('css/style.css')}}">
 	<link rel="stylesheet" href="{{ asset('css/responsive.css')}}">
+
+	@toastr_css
 </head>
 
 <body>
@@ -110,6 +112,9 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{{ asset('js/mail-script.js')}}"></script>
 	<script src="{{ asset('js/custom.js')}}"></script>
 	<script src="https://cdn.datatables.net/v/se-2.2.13/dt-1.10.20/datatables.min.js"></script>
+	@jquery
+    @toastr_js
+    @toastr_render
 	@yield('js')
 </body>
 

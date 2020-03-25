@@ -69,7 +69,8 @@ class TransaksiController extends Controller
              $transaksi ->bukti_transfer = "bukti/".$newName;
          $transaksi->save();
  
-         return redirect(route('home'));
+         toastr()->success('Terima Kasih Atas Donasi Anda');
+         return redirect(route('terima_kasih'));
     }
 
     /**
@@ -78,9 +79,9 @@ class TransaksiController extends Controller
      * @param  \App\Transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function show(Transaksi $transaksi)
+    public function terima_kasih(Transaksi $transaksi)
     {
-        //
+        return view('terima_kasih');
     }
 
     /**
@@ -152,9 +153,11 @@ class TransaksiController extends Controller
             $user->password = Hash::make($request->newpass);
             $user->update();
             
-            return redirect(route('admin.home'));
+            toastr()->success('Password telah berhasil diganti!');
+            return redirect()->route('admin.home');
         }else{
-            return redirect()->back()->withErrors(['oldpass', 'Password lama tidak sesuai']);;
+            toastr()->error('Password lama tidak sesuai');
+            return redirect()->back();
         }
         // dd($request->all());
     }
