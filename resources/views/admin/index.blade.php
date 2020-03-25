@@ -87,11 +87,13 @@
                                     @endif
                                 </td>
                                 <td>
+									@if($d->status == 0)
                                     <form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
                                         @csrf
                                         <button class="genric-btn success-border circle small accepted"><i class="fa fa-check"></i></button>
                                         <button class="genric-btn danger-border circle small rejected"><i class="fa fa-times"></i></button>
                                     </form>
+									@endif
                                         <button class="genric-btn info-border circle small modalimage" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
                                 </td>
 							</tr>
@@ -126,6 +128,9 @@
             });
 
             $(".accepted").click(function(){
+				this.preventDefault;
+				$(this).preventDefault;
+				console.log('url');
                 let form = $(this).parent();
                 let url = form.attr('action');
                 let tmp = url.split("/");
@@ -163,7 +168,7 @@
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
-        modal.style.display = "none";
+        	modal.style.display = "none";
         }
 	</script>
 @endsection
