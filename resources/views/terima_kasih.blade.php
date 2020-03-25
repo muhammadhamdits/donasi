@@ -21,20 +21,8 @@
 						<div class="row ml-0 w-100">
 							<div class="col-lg-12 pr-0" id="navbar">
 								<ul class="nav navbar-nav center_nav pull-right">
-									<li class="nav-item active">
-										<a class="nav-link" href="#home">Home</a>
-									</li>
-									<li class="nav-item ">
-										<a class="nav-link" href="#overview">Statistik</a>
-									</li>
-									<li class="nav-item ">
-										<a class="nav-link" href="#report">Laporan</a>
-									</li>
-									<li class="nav-item ">
-										<a class="nav-link" href="{{ route('login') }}">Admin</a>
-									</li>
 									<li class="nav-item">
-										<a class="main_btn" href="#donate">Donasikan Sekarang</a>
+										<a class="main_btn" href="{{ route('home') }}">Home</a>
 									</li>
 								</ul>
 							</div>
@@ -54,7 +42,7 @@
 				<div class="banner_content row">
 					<div class="offset-lg-2 col-lg-8">
 						<h1 style="text-shadow: 0 0 20px #000;"><b style="color: white">Terima Kasih Atas Donasi Anda</b></h1>
-						<p>111111111111</p>
+						<p>Semoga dapat bermanfaat :)</p>
 					</div>
 				</div>
 			</div>
