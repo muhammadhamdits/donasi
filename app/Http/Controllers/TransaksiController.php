@@ -40,14 +40,20 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-         Storage::putFile('public/bukti', $request->file('bukti_transfer'));
-        
-         //Path
-         $file = $request->file('bukti_transfer');
-         $fileName = time();
-         $fileExtension = $file->getClientOriginalExtension();
-         $newName = $fileName . '.' . $fileExtension; 
-         $path = $request->file('bukti_transfer')->storeAs('public/bukti', $newName);
+        $transaksi = new Transaksi;
+
+        if ($request->file != null) {
+            Storage::putFile('public/bukti', $request->file('bukti_transfer'));
+           
+            //Path
+            $file = $request->file('bukti_transfer');
+            $fileName = time();
+            $fileExtension = $file->getClientOriginalExtension();
+            $newName = $fileName . '.' . $fileExtension; 
+            $path = $request->file('bukti_transfer')->storeAs('public/bukti', $newName);
+
+            $transaksi ->bukti_transfer = "bukti/".$newName;
+        }
         // dd($path);
 
         //anon value
@@ -57,16 +63,12 @@ class TransaksiController extends Controller
         }
 
          //Store DB
-         $date = date('Y-m-d ');
-         $transaksi = new Transaksi;
              $transaksi ->nama = $request->nama;
              $transaksi ->email = $request->email;
              $transaksi ->jumlah = $request->jumlah;
              $transaksi ->status = 0;
-            //  $transaksi ->anonim = $request->anonim;
              $transaksi ->anonim = $anon;
-             $transaksi ->tanggal = $date;
-             $transaksi ->bukti_transfer = "bukti/".$newName;
+             $transaksi ->tanggal = date('Y-m-d ');
          $transaksi->save();
  
          toastr()->success('Terima Kasih Atas Donasi Anda');
@@ -139,6 +141,10 @@ class TransaksiController extends Controller
                 $message->to($to_email, $to_name)->subject("Terimakasih atas donasi anda");
                 $message->from(env('MAIL_USERNAME'), "Universitas Andalas");
             });
+            toastr()->success('Data telah di terima');
+        }
+        else{
+            toastr()->warning('Data telah di tolak');
         }
         return redirect(route('admin.home'));
     }

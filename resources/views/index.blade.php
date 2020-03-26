@@ -53,7 +53,7 @@
 			<div class="container">
 				<div class="banner_content row">
 					<div class="offset-lg-2 col-lg-8">
-						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b style="color: white">Pandemi Covid-19 sudah membahayakan kesehatan seluruh dunia. Donasikan uang anda agar membantu penanganan Covid-19 agar lebih baik lagi ke rekening berikut.</b></p>
+						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b style="color: white">Tim Kewaspadaan Covid-19 Universitas Andalas <br> Menerima donasi untuk mendanai  <br> 1. Pembelian Alat Pelindung Diri (APD)  <br> 2. Bantuan logistik bagi mahasiswa khususnya peneriman Bidik Misi dan yang di asrama <br>3. Dukungan logistik bagi tenaga kesehatan dan sukarelawan <br>4. Penyediaan Hand Sanitizer bagi warga Unand dan Masyarakat</b></p>
 						<p>111111111111</p>
 						<a class="main_btn mr-10" href="#donate">Donasikan Sekarang</a>
 						<a class="white_bg_btn" href="#report">Lihat Laporan</a>
@@ -111,9 +111,10 @@
     <div class="container">
       <div class="row justify-content-start section-title-wrap">
         <div class="col-lg-12">
-          <h1>Ayo Berdonasi Hari Ini</h1>
+          <h1>Laporkan Donasi Anda Hari Ini</h1>
           <p>
-            Kirimkan donasi anda ke nomor rekening <b style="color: black">Nomor Rekening a.n Rektor Unand</b>, lalu masukkan informasi donasi anda dan bukti transfer pada form di bawah ini.
+						{{--  Kirimkan donasi anda ke nomor rekening <b style="color: black">Nomor Rekening  resmi  Universitas Andalas</b>, lalu masukkan informasi donasi anda dan bukti transfer pada form di bawah ini.  --}}
+						Laporkan donasi anda agar dapat menjaga akuntabilitas donasi  pihak Universitas Andalas
           </p>
         </div>
       </div>
@@ -126,7 +127,8 @@
             <div class="col-lg-6 mb-4">
               <div class="donate_box">
                 <div class="form-group">
-                  <input type="text" placeholder="Nama" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama'" class="form-control" name="nama" required>
+                  <input type="text" placeholder="Nama" oninvalid="invalidMsg(this)" 
+									oninput="invalidMsg(this)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama'" class="form-control" name="nama" required>
                   <span class="fs-14"><i class="fa fa-user"></i></span>
                 </div>
               </div>
@@ -135,7 +137,8 @@
             <div class="col-lg-6 mb-4">
               <div class="donate_box">
                 <div class="form-group">
-                  <input type="text" placeholder="E-Mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail'" class="form-control" name="email" required>
+                  <input type="text" placeholder="E-Mail" oninvalid="invalidMsg(this)" 
+									oninput="invalidMsg(this)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail'" class="form-control" name="email" required>
                   <span class="fs-14"><i class="fa fa-envelope"></i></span>
                 </div>
               </div>
@@ -144,7 +147,8 @@
             <div class="col-lg-6 mb-4">
               <div class="donate_box">
                 <div class="form-group">
-                  <input type="number" placeholder="Jumlah" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Jumlah' " class="form-control" name="jumlah" required>
+                  <input type="number" placeholder="Jumlah" oninvalid="invalidMsg(this)" 
+									oninput="invalidMsg(this)" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Jumlah' " class="form-control" name="jumlah" required>
                   <span class="fs-14">Rp</span>
                 </div>
               </div>
@@ -153,8 +157,8 @@
             <div class="col-lg-6 mb-4">
               	<div class="donate_box">
                 	<div class="form-group">
-						<input type="file" name="bukti_transfer" id="bukti_transfer" hidden required>
-						<input type="text" placeholder="Bukti Transfer" class="form-control" id="buktitransfer" required>
+						<input type="file" name="bukti_transfer" id="bukti_transfer" hidden>
+						<input type="text" placeholder="Bukti Transfer" class="form-control" id="buktitransfer">
 						<span class="fs-14"><i class="fa fa-file"></i></span>
 					</div>
 				</div>
@@ -262,6 +266,18 @@
 		$(document).ready(function(){
 			$("#tabel").DataTable();
 		});
+
+		function invalidMsg(textbox){
+			if (textbox.value === '') { 
+				textbox.setCustomValidity('Mohon form ini untuk diisi'); 
+			} else if (textbox.validity.typeMismatch) { 
+				textbox.setCustomValidity('Mohon Masukkan input sesuai dengan jenis form'); 
+			} else { 
+				textbox.setCustomValidity(''); 
+			} 
+       return true; 
+		}
+
 	</script>
 @endsection
 

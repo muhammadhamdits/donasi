@@ -94,8 +94,10 @@
                                         <button class="genric-btn danger-border circle small rejected"><i class="fa fa-times"></i></button>
                                     </form>
 									@endif
+									@if($d->bukti_transfer != null)
                                         <button class="genric-btn info-border circle small modalimage" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
-                                </td>
+									@endif
+									</td>
 							</tr>
                             @endforeach
 						</tbody>
