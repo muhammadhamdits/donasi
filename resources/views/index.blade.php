@@ -54,7 +54,9 @@
 				<div class="banner_content row">
 					<div class="offset-lg-2 col-lg-8">
 						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b style="color: white">Tim Kewaspadaan Covid-19 Universitas Andalas <br> Menerima donasi untuk mendanai  <br> 1. Pembelian Alat Pelindung Diri (APD)  <br> 2. Bantuan logistik bagi mahasiswa khususnya peneriman Bidik Misi dan yang di asrama <br>3. Dukungan logistik bagi tenaga kesehatan dan sukarelawan <br>4. Penyediaan Hand Sanitizer bagi warga Unand dan Masyarakat</b></p>
-						<p>111111111111</p>
+						<p>Nama Rekening : RPL 010 BLU Universitas Andalas UTK DK <br> 
+							Nomor Rekening : <br> 1. 21020101001001 (Bank Nagari) <br> 2. 8777776616 (BNI) <br>
+						3. 7777703204 (Bank Syariah Mandiri) <br>	4. 1110015083971 (Bank Mandiri) </p>
 						<a class="main_btn mr-10" href="#donate">Donasikan Sekarang</a>
 						<a class="white_bg_btn" href="#report">Lihat Laporan</a>
 					</div>
