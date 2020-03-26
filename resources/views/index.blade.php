@@ -34,7 +34,7 @@
 										<a class="nav-link" href="{{ route('login') }}">Admin</a>
 									</li>
 									<li class="nav-item">
-										<a class="main_btn" href="#donate">Donasikan Sekarang</a>
+										<a class="main_btn" href="#donate">Laporkan Donasi</a>
 									</li>
 								</ul>
 							</div>
@@ -53,11 +53,11 @@
 			<div class="container">
 				<div class="banner_content row">
 					<div class="offset-lg-2 col-lg-8">
-						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b style="color: white">Tim Kewaspadaan Covid-19 Universitas Andalas <br> Menerima donasi untuk mendanai  <br> 1. Pembelian Alat Pelindung Diri (APD)  <br> 2. Bantuan logistik bagi mahasiswa khususnya peneriman Bidik Misi dan yang di asrama <br>3. Dukungan logistik bagi tenaga kesehatan dan sukarelawan <br>4. Penyediaan Hand Sanitizer bagi warga Unand dan Masyarakat</b></p>
+						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b>Tim Kewaspadaan Covid-19 Universitas Andalas <br>
 						<p>Nama Rekening : RPL 010 BLU Universitas Andalas UTK DK <br> 
 							Nomor Rekening : <br> 1. 21020101001001 (Bank Nagari) <br> 2. 8777776616 (BNI) <br>
 						3. 7777703204 (Bank Syariah Mandiri) <br>	4. 1110015083971 (Bank Mandiri) </p>
-						<a class="main_btn mr-10" href="#donate">Donasikan Sekarang</a>
+						<a class="main_btn mr-10" href="#donate">Laporkan Donasi</a>
 						<a class="white_bg_btn" href="#report">Lihat Laporan</a>
 					</div>
 				</div>
@@ -160,7 +160,7 @@
               	<div class="donate_box">
                 	<div class="form-group">
 						<input type="file" name="bukti_transfer" id="bukti_transfer" hidden>
-						<input type="text" placeholder="Bukti Transfer" class="form-control" id="buktitransfer">
+						<input type="text" placeholder="Bukti Transfer (Boleh dikosongkan)" class="form-control" id="buktitransfer">
 						<span class="fs-14"><i class="fa fa-file"></i></span>
 					</div>
 				</div>
@@ -180,7 +180,7 @@
 
             <div class="col-lg-6 mb-4">
               <div class="donate_box">
-                <button type="submit" class="main_btn w-100">donate now</button>
+                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
               </div>
             </div>
           </div>
@@ -253,14 +253,15 @@
 			var scrollPos = $(document).scrollTop();
 			$('#navbar a').each(function () {
 				var currLink = $(this);
-				var refElement = $(currLink.attr("href"));
-				console.log(currLink);
-				if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-					$('#navbar ul li').removeClass("active");
-					currLink.parent().addClass("active");
-				}
-				else{
-					currLink.removeClass("active");
+				if(currLink.attr("href") != "http://donasi.ham.di/login"){
+					var refElement = $(currLink.attr("href"));
+					if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+						$('#navbar ul li').removeClass("active");
+						currLink.parent().addClass("active");
+					}
+					else{
+						currLink.removeClass("active");
+					}
 				}
 			});
 		});
