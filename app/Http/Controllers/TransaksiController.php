@@ -71,7 +71,7 @@ class TransaksiController extends Controller
              $transaksi ->tanggal = date('Y-m-d ');
          $transaksi->save();
  
-         toastr()->success('Terima Kasih Atas Donasi Anda');
+        //  toastr()->success('Terima Kasih Atas Donasi Anda');
          return redirect(route('terima_kasih'));
     }
 

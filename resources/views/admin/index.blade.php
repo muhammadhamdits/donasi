@@ -90,12 +90,12 @@
 									@if($d->status == 0)
                                     <form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
                                         @csrf
-                                        <button class="genric-btn success-border circle small accepted"><i class="fa fa-check"></i></button>
-                                        <button class="genric-btn danger-border circle small rejected"><i class="fa fa-times"></i></button>
+                                        <button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+                                        <button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
                                     </form>
 									@endif
 									@if($d->bukti_transfer != null)
-                                        <button class="genric-btn info-border circle small modalimage" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
+                                        <button class="genric-btn info-border circle small modalimage" title="Unduh bukti transfer" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
 									@endif
 									</td>
 							</tr>
