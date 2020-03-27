@@ -53,7 +53,7 @@
 			<div class="container">
 				<div class="banner_content row">
 					<div class="offset-lg-2 col-lg-8">
-						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b>Tim Kewaspadaan Covid-19 Universitas Andalas <br>
+						<p style="text-shadow: 0 0 20px #000; font-size: 20px"><b style="color:white">Tim Kewaspadaan Covid-19 Universitas Andalas <br> </b> </p>
 						<p>Nama Rekening : RPL 010 BLU Universitas Andalas UTK DK <br> 
 							Nomor Rekening : <br> 1. 21020101001001 (Bank Nagari) <br> 2. 8777776616 (BNI) <br>
 						3. 7777703204 (Bank Syariah Mandiri) <br>	4. 1110015083971 (Bank Mandiri) </p>
