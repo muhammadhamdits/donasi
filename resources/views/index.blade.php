@@ -130,7 +130,7 @@
               <div class="donate_box">
                 <div class="form-group">
                   <input type="text" placeholder="Nama" oninvalid="invalidMsg(this)" 
-									oninput="invalidMsg(this)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama'" class="form-control" name="nama" required>
+									oninput="invalidMsg(this)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama'" class="single-input" name="nama" required>
                   <span class="fs-14"><i class="fa fa-user"></i></span>
                 </div>
               </div>
@@ -140,7 +140,7 @@
               <div class="donate_box">
                 <div class="form-group">
                   <input type="text" placeholder="E-Mail" oninvalid="invalidMsg(this)" 
-									oninput="invalidMsg(this)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail'" class="form-control" name="email" required>
+									oninput="invalidMsg(this)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'E-Mail'" class="single-input" name="email" required>
                   <span class="fs-14"><i class="fa fa-envelope"></i></span>
                 </div>
               </div>
@@ -150,7 +150,7 @@
               <div class="donate_box">
                 <div class="form-group">
                   <input type="number" placeholder="Jumlah" oninvalid="invalidMsg(this)" 
-									oninput="invalidMsg(this)" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Jumlah' " class="form-control" name="jumlah" required>
+									oninput="invalidMsg(this)" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Jumlah' " class="single-input" name="jumlah" required>
                   <span class="fs-14">Rp</span>
                 </div>
               </div>
@@ -160,10 +160,36 @@
               	<div class="donate_box">
                 	<div class="form-group">
 						<input type="file" name="bukti_transfer" id="bukti_transfer" hidden>
-						<input type="text" placeholder="Bukti Transfer (Boleh dikosongkan)" class="form-control" id="buktitransfer">
+						<input type="text" placeholder="Bukti Transfer (Boleh dikosongkan)" class="single-input" id="buktitransfer">
 						<span class="fs-14"><i class="fa fa-file"></i></span>
 					</div>
 				</div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              	<div class="donate_box">
+				  	<div class="input-group-icon">
+					  	<div class="icon">
+							<i class="fa fa-bank"></i>
+						</div>
+						<div class="form-select">
+							<select name="bank" id="bank" required>
+								<option value="" selected disabled>Pilih Bank</option>
+								<option value="1">Bank Nagari</option>
+								<option value="2">BNI</option>
+								<option value="3">Bank Syariah Mandiri</option>
+								<option value="4">Bank Mandiri</option>
+							</select>
+						</div>
+					</div>
+				</div>
+            </div>
+
+
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
+              </div>
             </div>
 
             <div class="col-lg-6 mb-4">
@@ -176,12 +202,6 @@
 						<p class="ml-3">Sembunyikan nama anda</p>
 					</div>
             	</div>
-            </div>
-
-            <div class="col-lg-6 mb-4">
-              <div class="donate_box">
-                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
-              </div>
             </div>
           </div>
         </form>

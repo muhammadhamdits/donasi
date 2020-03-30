@@ -66,6 +66,7 @@ class TransaksiController extends Controller
              $transaksi ->nama = $request->nama;
              $transaksi ->email = $request->email;
              $transaksi ->jumlah = $request->jumlah;
+             $transaksi ->bank = $request->bank;
              $transaksi ->status = 0;
              $transaksi ->anonim = $anon;
              $transaksi ->tanggal = date('Y-m-d ');
