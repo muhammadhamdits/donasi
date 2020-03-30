@@ -124,7 +124,9 @@ class TransaksiController extends Controller
     public function home()
     {
         $data = Transaksi::orderBy('status', 'asc')->get();
-        return view('admin.index', ['data' => $data]);
+        $bank = Transaksi::$bank;
+        // dd($bank);
+        return view('admin.index', compact('data', 'bank'));
     }
 
     public function accept($id, $status)

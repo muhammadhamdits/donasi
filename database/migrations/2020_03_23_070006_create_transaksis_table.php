@@ -19,6 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->string('email');
             $table->bigInteger('jumlah');
             $table->string('bukti_transfer')->nullable();
+            $table->integer('bank')->nullable();
             $table->boolean('status')->default(false);
             $table->boolean('anonim')->default(false);
             $table->date('tanggal');

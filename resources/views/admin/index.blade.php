@@ -64,6 +64,7 @@
 								<td>Nama</td>
 								<td>E-Mail</td>
 								<td>Jumlah</td>
+								<td>Bank</td>
 								<td>Tanggal</td>
 								<td>Status</td>
 								<td>Aksi</td>
@@ -76,6 +77,13 @@
 								<td>{{ $d->nama }}</td>
 								<td>{{ $d->email }}</td>
 								<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
+								<td>
+									@foreach ($bank as $key => $val)                                           
+                                        @if ($key == $d->bank)
+                                            {{ $val }}
+                                        @endif
+                                    @endforeach
+								</td>
                                 <td>{{ tgl_indo($d->tanggal) }}</td>
                                 <td>
                                     @if($d->status == 0)
