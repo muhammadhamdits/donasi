@@ -24,9 +24,9 @@
 									<li class="nav-item active">
 										<a class="nav-link" href="#home">Home</a>
 									</li>
-									<li class="nav-item ">
+									<!-- <li class="nav-item ">
 										<a class="nav-link" href="#overview">Statistik</a>
-									</li>
+									</li> -->
 									<li class="nav-item ">
 										<a class="nav-link" href="#report">Laporan</a>
 									</li>
@@ -66,7 +66,7 @@
 	</section>
 	<!--================ End Home Banner Area =================-->
 
-
+{{--
 	<!--================ Start important-points section =================-->
 	<section class="donation_details pad_top" id="overview">
 		<div class="container">
@@ -107,6 +107,7 @@
 		</div>
 	</section>
 	<!--================ End important-points section =================-->
+--}}
 
   <!--================ Start Make Donation Area =================-->
   <section class="make_donation section_gap" id="donate">
@@ -165,7 +166,7 @@
 					</div>
 				</div>
             </div>
-
+{{--
             <div class="col-lg-6 mb-4">
               	<div class="donate_box">
 				  	<div class="input-group-icon">
@@ -184,13 +185,8 @@
 					</div>
 				</div>
             </div>
+--}}
 
-
-            <div class="col-lg-6 mb-4">
-              <div class="donate_box">
-                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
-              </div>
-            </div>
 
             <div class="col-lg-6 mb-4">
               	<div class="donate_box">
@@ -202,6 +198,12 @@
 						<p class="ml-3">Sembunyikan nama anda</p>
 					</div>
             	</div>
+            </div>
+			
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
+              </div>
             </div>
           </div>
         </form>

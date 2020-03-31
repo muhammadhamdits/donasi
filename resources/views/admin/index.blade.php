@@ -43,6 +43,47 @@
 	</header>
     <!--================Header Menu Area =================-->
 
+	<!--================ Start important-points section =================-->
+	<section class="donation_details pad_top" id="overview">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-6 single_donation_box">
+					<i class="fa fa-line-chart ikon"></i>
+					<h4>Total Donasi</h4>
+					<h3>{{ $data->count() }}</h3>
+					<p>
+						Donatur 
+					</p>
+				</div>
+				<div class="col-lg-3 col-md-6 single_donation_box">
+					<i class="fa fa-money ikon"></i>
+					<h4>Dana Terkumpulkan</h4>
+					<h3>Rp {{ number_format($data->sum('jumlah'),2,',','.') }}</h3>
+					<p>
+						Rupiah
+					</p>
+				</div>
+				<div class="col-lg-3 col-md-6 single_donation_box">
+					<i class="fa fa-users ikon"></i>
+					<h4>Donasi Hari Ini</h4>
+					<h3>{{ $data->where('tanggal', date('Y-m-d'))->count() }}</h3>
+					<p>
+						Donatur
+					</p>
+				</div>
+				<div class="col-lg-3 col-md-6 single_donation_box">
+					<i class="fa fa-thumbs-up ikon"></i>
+					<h4>Dana Hari Ini</h4>
+					<h3>Rp {{ number_format($data->where('tanggal', date('Y-m-d'))->sum('jumlah'),2,',','.') }}</h3>
+					<p>
+						Rupiah
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End important-points section =================-->
+
     <!--================ Start Our Major Cause section =================-->
 	<section class="our_major_cause section_gap" id="report">
 		<div class="container">
@@ -56,62 +97,280 @@
 			</div>
 
 			<div class="row">
-				<div class="table d-flex justify-content-center">
-         			 <table width="100%" class="text-center" id="tabel">
-            			<thead>
-							<tr>
-								<td>No</td>
-								<td>Nama</td>
-								<td>E-Mail</td>
-								<td>Jumlah</td>
-								<td>Bank</td>
-								<td>Tanggal</td>
-								<td>Status</td>
-								<td>Aksi</td>
-							</tr>
-						</thead>
-						<tbody>
-						@foreach($data as $d)
-							<tr>
-								<td>{{ $loop->iteration }}</td>
-								<td>{{ $d->nama }}</td>
-								<td>{{ $d->email }}</td>
-								<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
-								<td>
-									@foreach ($bank as $key => $val)                                           
-                                        @if ($key == $d->bank)
-                                            {{ $val }}
-                                        @endif
-                                    @endforeach
-								</td>
-                                <td>{{ tgl_indo($d->tanggal) }}</td>
-                                <td>
-                                    @if($d->status == 0)
-                                    <span class="badge badge-info">Ditambahkan</span>
-                                    @elseif($d->status == 1)
-                                    <span class="badge badge-success">Disetujui</span>
-                                    @elseif($d->status == 2)
-                                    <span class="badge badge-danger">Ditolak</span>
-                                    @endif
-                                </td>
-                                <td>
-									@if($d->status == 0)
-                                    <form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
-                                        @csrf
-                                        <button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
-                                        <button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
-                                    </form>
-									@endif
-									@if($d->bukti_transfer != null)
-                                        <button class="genric-btn info-border circle small modalimage" title="Unduh bukti transfer" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
-									@endif
+				<ul class="nav nav-tabs col-12">
+					<li class="active mr-4"><a class="btn" data-toggle="tab" href="#home" id="menu">Home</a></li>
+					<li class="mr-4"><a class="btn" data-toggle="tab" href="#menu1">Bank Nagari</a></li>
+					<li class="mr-4"><a class="btn" data-toggle="tab" href="#menu2">BNI</a></li>
+					<li class="mr-4"><a class="btn" data-toggle="tab" href="#menu3">Bank Syariah Mandiri</a></li>
+					<li class="mr-4"><a class="btn" data-toggle="tab" href="#menu4">Bank Mandiri</a></li>
+				</ul>
+				
+				<div class="tab-content table d-flex justify-content-center mt-4">
+					<div id="home" class="tab-pane fade in active ">
+						<h4 class="text-center">Home</h4>
+						<table width="100%" class="text-center" id="tabel">
+							<thead>
+								<tr>
+									
+									<td>Nama</td>
+									<td>E-Mail</td>
+									<td>Jumlah</td>
+									<!-- <td>Bank</td> -->
+									<td>Tanggal</td>
+									<td>Status</td>
+									<td>Aksi</td>
+								</tr>
+							</thead>
+							<tbody>
+							@foreach($data as $d)
+							@if($d->bank == null)
+								<tr>
+									
+									<td>{{ $d->nama }}</td>
+									<td>{{ $d->email }}</td>
+									<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
+									{{--<td>
+										@foreach ($bank as $key => $val)                                           
+											@if ($key == $d->bank)
+												{{ $val }}
+											@endif
+										@endforeach
+									</td>--}}
+									<td>{{ tgl_indo($d->tanggal) }}</td>
+									<td>
+										@if($d->status == 0)
+										<span class="badge badge-info">Ditambahkan</span>
+										@elseif($d->status == 1)
+										<span class="badge badge-success">Disetujui</span>
+										@elseif($d->status == 2)
+										<span class="badge badge-danger">Ditolak</span>
+										@endif
 									</td>
-							</tr>
-                            @endforeach
-						</tbody>
-						<tfoot></tfoot>
-          			</table>
-        		</div>
+									<td>
+										@if($d->status == 0)
+										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+											@csrf
+											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
+										</form>
+										@endif
+										@if($d->bukti_transfer != null)
+											<button class="genric-btn info-border circle small modalimage" title="Unduh bukti transfer" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
+										@endif
+										<button class="genric-btn primary-border circle small modalbank" title="Edit Bank" data-id="{{ $d->id }}"><i class="fa fa-edit"></i></button>
+										</td>
+								</tr>
+							@endif
+							@endforeach
+							</tbody>
+							<tfoot></tfoot>
+						</table>
+					</div>
+					<div id="menu1" class="tab-pane fade in">
+						<h4 class="text-center">Bank Nagari</h4>
+						<table width="100%" class="text-center" id="tabel1">
+							<thead>
+								<tr>
+									
+									<td>Nama</td>
+									<td>E-Mail</td>
+									<td>Jumlah</td>
+									<td>Tanggal</td>
+									<td>Status</td>
+									<td>Aksi</td>
+								</tr>
+							</thead>
+							<tbody>
+							@foreach($data as $d)
+							@if($d->bank == 1)
+								<tr>
+									
+									<td>{{ $d->nama }}</td>
+									<td>{{ $d->email }}</td>
+									<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
+									<td>{{ tgl_indo($d->tanggal) }}</td>
+									<td>
+										@if($d->status == 0)
+										<span class="badge badge-info">Ditambahkan</span>
+										@elseif($d->status == 1)
+										<span class="badge badge-success">Disetujui</span>
+										@elseif($d->status == 2)
+										<span class="badge badge-danger">Ditolak</span>
+										@endif
+									</td>
+									<td>
+										@if($d->status == 0)
+										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+											@csrf
+											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
+										</form>
+										@endif
+										@if($d->bukti_transfer != null)
+											<button class="genric-btn info-border circle small modalimage" title="Unduh bukti transfer" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
+										@endif
+										</td>
+								</tr>
+							@endif
+							@endforeach
+							</tbody>
+							<tfoot></tfoot>
+						</table>
+					</div>
+					<div id="menu2" class="tab-pane fade in">
+						<h4 class="text-center">BNI</h4>
+						<table width="100%" class="text-center" id="tabel2">
+							<thead>
+								<tr>
+									
+									<td>Nama</td>
+									<td>E-Mail</td>
+									<td>Jumlah</td>
+									<td>Tanggal</td>
+									<td>Status</td>
+									<td>Aksi</td>
+								</tr>
+							</thead>
+							<tbody>
+							@foreach($data as $d)
+							@if($d->bank == 2)
+								<tr>
+									
+									<td>{{ $d->nama }}</td>
+									<td>{{ $d->email }}</td>
+									<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
+									<td>{{ tgl_indo($d->tanggal) }}</td>
+									<td>
+										@if($d->status == 0)
+										<span class="badge badge-info">Ditambahkan</span>
+										@elseif($d->status == 1)
+										<span class="badge badge-success">Disetujui</span>
+										@elseif($d->status == 2)
+										<span class="badge badge-danger">Ditolak</span>
+										@endif
+									</td>
+									<td>
+										@if($d->status == 0)
+										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+											@csrf
+											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
+										</form>
+										@endif
+										@if($d->bukti_transfer != null)
+											<button class="genric-btn info-border circle small modalimage" title="Unduh bukti transfer" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
+										@endif
+										</td>
+								</tr>
+							@endif
+							@endforeach
+							</tbody>
+							<tfoot></tfoot>
+						</table>
+					</div>
+					<div id="menu3" class="tab-pane fade in">
+						<h4 class="text-center">Bank Syariah Mandiri</h4>
+						<table width="100%" class="text-center" id="tabel3">
+							<thead>
+								<tr>
+									
+									<td>Nama</td>
+									<td>E-Mail</td>
+									<td>Jumlah</td>
+									<td>Tanggal</td>
+									<td>Status</td>
+									<td>Aksi</td>
+								</tr>
+							</thead>
+							<tbody>
+							@foreach($data as $d)
+							@if($d->bank == 3)
+								<tr>
+									
+									<td>{{ $d->nama }}</td>
+									<td>{{ $d->email }}</td>
+									<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
+									<td>{{ tgl_indo($d->tanggal) }}</td>
+									<td>
+										@if($d->status == 0)
+										<span class="badge badge-info">Ditambahkan</span>
+										@elseif($d->status == 1)
+										<span class="badge badge-success">Disetujui</span>
+										@elseif($d->status == 2)
+										<span class="badge badge-danger">Ditolak</span>
+										@endif
+									</td>
+									<td>
+										@if($d->status == 0)
+										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+											@csrf
+											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
+										</form>
+										@endif
+										@if($d->bukti_transfer != null)
+											<button class="genric-btn info-border circle small modalimage" title="Unduh bukti transfer" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
+										@endif
+										</td>
+								</tr>
+							@endif
+							@endforeach
+							</tbody>
+							<tfoot></tfoot>
+						</table>
+					</div>
+					<div id="menu4" class="tab-pane fade in">
+						<h4 class="text-center">Bank Mandiri</h4>
+						<table width="100%" class="text-center" id="tabel4">
+							<thead>
+								<tr>
+									
+									<td>Nama</td>
+									<td>E-Mail</td>
+									<td>Jumlah</td>
+									<td>Tanggal</td>
+									<td>Status</td>
+									<td>Aksi</td>
+								</tr>
+							</thead>
+							<tbody>
+							@foreach($data as $d)
+							@if($d->bank == 4)
+								<tr>
+									
+									<td>{{ $d->nama }}</td>
+									<td>{{ $d->email }}</td>
+									<td>Rp {{ number_format($d->jumlah,2,',','.') }}</td>
+									<td>{{ tgl_indo($d->tanggal) }}</td>
+									<td>
+										@if($d->status == 0)
+										<span class="badge badge-info">Ditambahkan</span>
+										@elseif($d->status == 1)
+										<span class="badge badge-success">Disetujui</span>
+										@elseif($d->status == 2)
+										<span class="badge badge-danger">Ditolak</span>
+										@endif
+									</td>
+									<td>
+										@if($d->status == 0)
+										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+											@csrf
+											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
+										</form>
+										@endif
+										@if($d->bukti_transfer != null)
+											<button class="genric-btn info-border circle small modalimage" title="Unduh bukti transfer" src="{{ asset('storage/'.$d->bukti_transfer) }}"><i class="fa fa-file"></i></button>
+										@endif
+										</td>
+								</tr>
+							@endif
+							@endforeach
+							</tbody>
+							<tfoot></tfoot>
+						</table>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -124,12 +383,58 @@
         <!-- Modal Content (The Image) -->
         <img class="modal-content" id="img01">
     </div>
+
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="buttonhide">
+	
+	</button>
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Pilih Bank</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form action="{{ route('admin.bank') }}" method="post">
+					<div class="modal-body">
+						@csrf
+						<input type="hidden" name="id_trans" id="id_trans">
+						<div class="input-group-icon">
+							<div class="icon">
+								<i class="fa fa-bank"></i>
+							</div>
+							<div class="form-select">
+								<select name="bank" id="bank" required>
+									<option value="" selected disabled>Pilih Bank</option>
+									<option value="1">Bank Nagari</option>
+									<option value="2">BNI</option>
+									<option value="3">Bank Syariah Mandiri</option>
+									<option value="4">Bank Mandiri</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="cancel" class="btn btn-danger" data-dismiss="modal">Batal</button>
+						<button type="submit" name="simpan" class="btn btn-success">Simpan</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 @endsection
 
 @section('js')
 	<script>
 		$(document).ready(function(){
             $("#tabel").DataTable();
+            $("#tabel1").DataTable();
+            $("#tabel2").DataTable();
+            $("#tabel3").DataTable();
+            $("#tabel4").DataTable();
+			$("#menu").click();
+			$("#buttonhide").hide();
             
             $("#logout").click(function(){
                 $(this).preventDefault;
@@ -140,7 +445,7 @@
             $(".accepted").click(function(){
 				this.preventDefault;
 				$(this).preventDefault;
-				console.log('url');
+				// console.log('url');
                 let form = $(this).parent();
                 let url = form.attr('action');
                 let tmp = url.split("/");
@@ -160,6 +465,12 @@
                 url += "/2";
                 form.attr('action', url);
             });
+		});
+
+		$(".modalbank").click(function(){
+			$("#buttonhide").click();
+			let id_trans = $(this).data('id');
+			$("#id_trans").val(id_trans);
 		});
 
         // Get the modal
