@@ -66,6 +66,7 @@ class TransaksiController extends Controller
              $transaksi ->nama = $request->nama;
              $transaksi ->email = $request->email;
              $transaksi ->jumlah = $request->jumlah;
+            //  $transaksi ->bank = $request->bank;
              $transaksi ->status = 0;
              $transaksi ->anonim = $anon;
              $transaksi ->tanggal = date('Y-m-d ');
@@ -104,9 +105,14 @@ class TransaksiController extends Controller
      * @param  \App\Transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaksi $transaksi)
+    public function update(Request $request)
     {
-        //
+        // dd($request->all());
+        $data = Transaksi::findOrFail($request->id_trans);
+        $data->bank = $request->bank;
+        $data->update();
+        toastr()->success('Data telah diperbaharui');
+        return redirect(route('admin.home'));
     }
 
     /**
@@ -123,7 +129,9 @@ class TransaksiController extends Controller
     public function home()
     {
         $data = Transaksi::orderBy('status', 'asc')->get();
-        return view('admin.index', ['data' => $data]);
+        $bank = Transaksi::$bank;
+        // dd($bank);
+        return view('admin.index', compact('data', 'bank'));
     }
 
     public function accept($id, $status)
