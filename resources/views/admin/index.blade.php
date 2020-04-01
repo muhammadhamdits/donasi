@@ -46,40 +46,40 @@
 	<!--================ Start important-points section =================-->
 	<section class="donation_details pad_top" id="overview">
 		<div class="container">
+		<form action="{{ route('admin.edit') }}" method="post">
+		@csrf
 			<div class="row">
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-line-chart ikon"></i>
-					<h4>Total Donasi</h4>
-					<h3>{{ $data->count() }}</h3>
-					<p>
-						Donatur 
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>Bank Nagari</h4>
+					<input type="number" name="nagari" id="nagari" class="form-control" value="{{ $total->nagari }}">
+					<p class="mt-3">Rupiah</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-money ikon"></i>
-					<h4>Dana Terkumpulkan</h4>
-					<h3>Rp {{ number_format($data->sum('jumlah'),2,',','.') }}</h3>
-					<p>
-						Rupiah
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>BNI</h4>
+					<input type="number" name="bni" id="bni" class="form-control" value="{{ $total->bni }}">
+					<p class="mt-3">Rupiah</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-users ikon"></i>
-					<h4>Donasi Hari Ini</h4>
-					<h3>{{ $data->where('tanggal', date('Y-m-d'))->count() }}</h3>
-					<p>
-						Donatur
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>Bank Syariah Mandiri</h4>
+					<input type="number" name="bsm" id="bsm" class="form-control" value="{{ $total->bsm }}">
+					<p class="mt-3">Rupiah</p>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-thumbs-up ikon"></i>
-					<h4>Dana Hari Ini</h4>
-					<h3>Rp {{ number_format($data->where('tanggal', date('Y-m-d'))->sum('jumlah'),2,',','.') }}</h3>
-					<p>
-						Rupiah
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>Bank Mandiri</h4>
+					<input type="number" name="mandiri" id="mandiri" class="form-control" value="{{ $total->mandiri }}">
+					<p class="mt-3">Rupiah</p>
 				</div>
 			</div>
+			<div class="row justify-content-center section-title-wrap mt-4">
+				<div class="col-lg-12">
+					<button type="submit" class="btn btn-success">Perbaharui</button>
+				</div>
+			</div>
+		</form>
 		</div>
 	</section>
 	<!--================ End important-points section =================-->

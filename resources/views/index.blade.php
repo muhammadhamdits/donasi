@@ -24,9 +24,9 @@
 									<li class="nav-item active">
 										<a class="nav-link" href="#home">Home</a>
 									</li>
-									<!-- <li class="nav-item ">
+									<li class="nav-item ">
 										<a class="nav-link" href="#overview">Statistik</a>
-									</li> -->
+									</li>
 									<li class="nav-item ">
 										<a class="nav-link" href="#report">Laporan</a>
 									</li>
@@ -66,48 +66,45 @@
 	</section>
 	<!--================ End Home Banner Area =================-->
 
-{{--
+
 	<!--================ Start important-points section =================-->
 	<section class="donation_details pad_top" id="overview">
 		<div class="container">
+			<div class="row justify-content-center section-title-wrap">
+				<div class="col-lg-12">
+					<h1>Total Donasi</h1>
+					<p>
+						Total Donasi yang telah dikumpulkan
+					</p>
+				</div>
+			</div>
+
 			<div class="row">
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-line-chart ikon"></i>
-					<h4>Total Donasi</h4>
-					<h3>{{ $data->count() }}</h3>
-					<p>
-						Donatur 
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>Bank Nagari</h4>
+					<h3>Rp {{ number_format($total->nagari,2,',','.') }}</h3>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-money ikon"></i>
-					<h4>Dana Terkumpulkan</h4>
-					<h3>Rp {{ number_format($data->sum('jumlah'),2,',','.') }}</h3>
-					<p>
-						Rupiah
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>BNI</h4>
+					<h3>Rp {{ number_format($total->bni,2,',','.') }}</h3>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-users ikon"></i>
-					<h4>Donasi Hari Ini</h4>
-					<h3>{{ $data->where('tanggal', date('Y-m-d'))->count() }}</h3>
-					<p>
-						Donatur
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>Bank Syariah Mandiri</h4>
+					<h3>Rp {{ number_format($total->bsm,2,',','.') }}</h3>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-thumbs-up ikon"></i>
-					<h4>Dana Hari Ini</h4>
-					<h3>Rp {{ number_format($data->where('tanggal', date('Y-m-d'))->sum('jumlah'),2,',','.') }}</h3>
-					<p>
-						Rupiah
-					</p>
+					<i class="fa fa-bank ikon"></i>
+					<h4>Bank Mandiri</h4>
+					<h3>Rp {{ number_format($total->mandiri,2,',','.') }}</h3>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!--================ End important-points section =================-->
---}}
+
 
   <!--================ Start Make Donation Area =================-->
   <section class="make_donation section_gap" id="donate">
@@ -166,7 +163,7 @@
 					</div>
 				</div>
             </div>
-{{--
+
             <div class="col-lg-6 mb-4">
               	<div class="donate_box">
 				  	<div class="input-group-icon">
@@ -174,8 +171,8 @@
 							<i class="fa fa-bank"></i>
 						</div>
 						<div class="form-select">
-							<select name="bank" id="bank" required>
-								<option value="" selected disabled>Pilih Bank</option>
+							<select name="bank" id="bank">
+								<option value="" selected disabled>Pilih Bank (Opsional)</option>
 								<option value="1">Bank Nagari</option>
 								<option value="2">BNI</option>
 								<option value="3">Bank Syariah Mandiri</option>
@@ -185,8 +182,14 @@
 					</div>
 				</div>
             </div>
---}}
 
+
+			
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
+              </div>
+            </div>
 
             <div class="col-lg-6 mb-4">
               	<div class="donate_box">
@@ -198,12 +201,6 @@
 						<p class="ml-3">Sembunyikan nama anda</p>
 					</div>
             	</div>
-            </div>
-			
-            <div class="col-lg-6 mb-4">
-              <div class="donate_box">
-                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
-              </div>
             </div>
           </div>
         </form>
