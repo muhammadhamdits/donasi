@@ -81,24 +81,28 @@
 
 			<div class="row">
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>Bank Nagari</h4>
-					<h3>Rp {{ number_format($total->nagari,2,',','.') }}</h3>
+					<img class="mb-4" src="{{ asset('img/clients-logo/nagari.png') }}" alt="" height="60">
+					<!-- <i class="fa fa-bank ikon"></i> -->
+					<!-- <h4>Bank Nagari</h4> -->
+					<h3 class="mt-4">Rp {{ number_format($total->nagari,2,',','.') }}</h3>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>BNI</h4>
-					<h3>Rp {{ number_format($total->bni,2,',','.') }}</h3>
+					<img class="mb-4" src="{{ asset('img/clients-logo/bni.png') }}" alt="" height="60">
+					<!-- <i class="fa fa-bank ikon"></i> -->
+					<!-- <h4>BNI</h4> -->
+					<h3 class="mt-4">Rp {{ number_format($total->bni,2,',','.') }}</h3>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>Bank Syariah Mandiri</h4>
-					<h3>Rp {{ number_format($total->bsm,2,',','.') }}</h3>
+					<img class="mb-4" src="{{ asset('img/clients-logo/bsm.png') }}" alt="" height="60">
+					<!-- <i class="fa fa-bank ikon"></i> -->
+					<!-- <h4>Bank Syariah Mandiri</h4> -->
+					<h3 class="mt-4">Rp {{ number_format($total->bsm,2,',','.') }}</h3>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>Bank Mandiri</h4>
-					<h3>Rp {{ number_format($total->mandiri,2,',','.') }}</h3>
+					<img class="mb-4" src="{{ asset('img/clients-logo/mandiri.png') }}" alt="" height="60">
+					<!-- <i class="fa fa-bank ikon"></i> -->
+					<!-- <h4>Bank Mandiri</h4> -->
+					<h3 class="mt-4">Rp {{ number_format($total->mandiri,2,',','.') }}</h3>
 				</div>
 			</div>
 		</div>
