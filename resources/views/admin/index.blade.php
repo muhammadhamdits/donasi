@@ -50,28 +50,57 @@
 		@csrf
 			<div class="row">
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>Bank Nagari</h4>
-					<input type="number" name="nagari" id="nagari" class="form-control" value="{{ $total->nagari }}">
-					<p class="mt-3">Rupiah</p>
+					<!-- <i class="fa fa-bank ikon"></i> -->
+					<!-- <h4>Bank Nagari</h4> -->
+					<img class="mb-4" src="{{ asset('img/clients-logo/nagari.png') }}" alt="" height="60">
+					<p class="mt-3">Jumlah</p>
+					{{--<input type="text" name="nagari" id="nagari" class="form-control  input-element" value="{{ $total->nagari }}">--}}
+					<div class="input-group-icon mt-10">
+						<div class="icon">
+							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
+							Rp
+						</div>
+						<input type="text" name="nagari" id="nagari" class="form-control single-input input-element" value="{{ $total->nagari }}">
+					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>BNI</h4>
-					<input type="number" name="bni" id="bni" class="form-control" value="{{ $total->bni }}">
-					<p class="mt-3">Rupiah</p>
+					<!-- <i class="fa fa-bank ikon"></i>
+					<h4>BNI</h4> -->
+					<img class="mb-4" src="{{ asset('img/clients-logo/bni.png') }}" alt="" height="60">
+					<p class="mt-3">Jumlah</p>
+					<div class="input-group-icon mt-10">
+						<div class="icon">
+							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
+							Rp
+						</div>
+						<input type="text" name="bni" id="bni" class="form-control single-input input-element1" value="{{ $total->bni }}">
+					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>Bank Syariah Mandiri</h4>
-					<input type="number" name="bsm" id="bsm" class="form-control" value="{{ $total->bsm }}">
-					<p class="mt-3">Rupiah</p>
+					<!-- <i class="fa fa-bank ikon"></i>
+					<h4>Bank Syariah Mandiri</h4> -->
+					<img class="mb-4" src="{{ asset('img/clients-logo/bsm.png') }}" alt="" height="60">
+					<p class="mt-3">Jumlah</p>
+					<div class="input-group-icon mt-10">
+						<div class="icon">
+							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
+							Rp
+						</div>
+						<input type="text" name="bsm" id="bsm" class="form-control single-input input-element2" value="{{ $total->bsm }}">
+					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
-					<i class="fa fa-bank ikon"></i>
-					<h4>Bank Mandiri</h4>
-					<input type="number" name="mandiri" id="mandiri" class="form-control" value="{{ $total->mandiri }}">
-					<p class="mt-3">Rupiah</p>
+					<!-- <i class="fa fa-bank ikon"></i>
+					<h4>Bank Mandiri</h4> -->
+					<img class="mb-4" src="{{ asset('img/clients-logo/mandiri.png') }}" alt="" height="60">
+					<p class="mt-3">Jumlah</p>
+					<div class="input-group-icon mt-10">
+						<div class="icon">
+							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
+							Rp
+						</div>
+						<input type="text" name="mandiri" id="mandiri" class="form-control single-input input-element3" value="{{ $total->mandiri }}">
+					</div>
 				</div>
 			</div>
 			<div class="row justify-content-center section-title-wrap mt-4">
@@ -491,6 +520,27 @@
         span.onclick = function() {
         	modal.style.display = "none";
         }
+
+		var cleave = new Cleave('.input-element', {
+			numeral: true,
+			delimiter: '.',
+			numeralThousandsGroupStyle: 'thousand'
+		});
+		var cleave1 = new Cleave('.input-element1', {
+			numeral: true,
+			delimiter: '.',
+			numeralThousandsGroupStyle: 'thousand'
+		});
+		var cleave2 = new Cleave('.input-element2', {
+			numeral: true,
+			delimiter: '.',
+			numeralThousandsGroupStyle: 'thousand'
+		});
+		var cleave3 = new Cleave('.input-element3', {
+			numeral: true,
+			delimiter: '.',
+			numeralThousandsGroupStyle: 'thousand'
+		});
 	</script>
 @endsection
 

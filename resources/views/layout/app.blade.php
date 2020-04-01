@@ -112,6 +112,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> <a hr
 	<script src="{{ asset('js/mail-script.js')}}"></script>
 	<script src="{{ asset('js/custom.js')}}"></script>
 	<script src="{{ asset('js/datatables.min.js')}}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.5.8/cleave.min.js"></script>
 	
     @toastr_js
     @toastr_render
