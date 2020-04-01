@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Mail;
+use DB;
 use App\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -10,34 +11,19 @@ use Illuminate\Support\Facades\Hash;
 
 class TransaksiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = Transaksi::where('status', 1)->get();
+        $total = DB::table('totals')->first();
         // dd($data);
-        return view('index', ['data' => $data]);
+        return view('index', ['data' => $data, 'total' => $total]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $transaksi = new Transaksi;
@@ -76,35 +62,24 @@ class TransaksiController extends Controller
          return redirect(route('terima_kasih'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Transaksi  $transaksi
-     * @return \Illuminate\Http\Response
-     */
     public function terima_kasih(Transaksi $transaksi)
     {
         return view('terima_kasih');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Transaksi  $transaksi
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Transaksi $transaksi)
+    public function edit(Request $request)
     {
-        //
+        // dd($request->all());
+        DB::table('totals')->where('id', 1)->update([
+            'nagari' => $request->nagari,
+            'bni' => $request->bni,
+            'bsm' => $request->bsm,
+            'mandiri' => $request->mandiri
+        ]);
+        toastr()->success('Data telah diperbaharui');
+        return redirect(route('admin.home'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transaksi  $transaksi
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request)
     {
         // dd($request->all());
@@ -115,12 +90,6 @@ class TransaksiController extends Controller
         return redirect(route('admin.home'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Transaksi  $transaksi
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Transaksi $transaksi)
     {
         //
@@ -130,8 +99,9 @@ class TransaksiController extends Controller
     {
         $data = Transaksi::orderBy('status', 'asc')->get();
         $bank = Transaksi::$bank;
+        $total = DB::table('totals')->first();
         // dd($bank);
-        return view('admin.index', compact('data', 'bank'));
+        return view('admin.index', compact('data', 'bank', 'total'));
     }
 
     public function accept($id, $status)

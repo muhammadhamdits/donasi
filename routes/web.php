@@ -25,3 +25,4 @@ Route::get('/changepass', 'TransaksiController@changepass')->name('admin.pass')-
 Route::post('/changepass', 'TransaksiController@passchange')->name('admin.change')->middleware('auth');
 Route::post('/accept/{id}/{status}', 'TransaksiController@accept')->name('admin.accept')->middleware('auth');
 Route::post('/bank', 'TransaksiController@update')->name('admin.bank')->middleware('auth');
+Route::post('/admin/edit', 'TransaksiController@edit')->name('admin.edit')->middleware('auth');
