@@ -60,7 +60,7 @@
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="text" name="nagari" id="nagari" class="form-control single-input input-element" value="{{ $total->nagari }}">
+						<input type="number" name="nagari" id="nagari" class="form-control single-input input-element" value="{{ $total->nagari }}">
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
@@ -73,7 +73,7 @@
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="text" name="bni" id="bni" class="form-control single-input input-element1" value="{{ $total->bni }}">
+						<input type="number" name="bni" id="bni" class="form-control single-input input-element1" value="{{ $total->bni }}">
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
@@ -86,7 +86,7 @@
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="text" name="bsm" id="bsm" class="form-control single-input input-element2" value="{{ $total->bsm }}">
+						<input type="number" name="bsm" id="bsm" class="form-control single-input input-element2" value="{{ $total->bsm }}">
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
@@ -99,7 +99,7 @@
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="text" name="mandiri" id="mandiri" class="form-control single-input input-element3" value="{{ $total->mandiri }}">
+						<input type="number" name="mandiri" id="mandiri" class="form-control single-input input-element3" value="{{ $total->mandiri }}">
 					</div>
 				</div>
 			</div>
@@ -521,26 +521,26 @@
         	modal.style.display = "none";
         }
 
-		var cleave = new Cleave('.input-element', {
-			numeral: true,
-			delimiter: '.',
-			numeralThousandsGroupStyle: 'thousand'
-		});
-		var cleave1 = new Cleave('.input-element1', {
-			numeral: true,
-			delimiter: '.',
-			numeralThousandsGroupStyle: 'thousand'
-		});
-		var cleave2 = new Cleave('.input-element2', {
-			numeral: true,
-			delimiter: '.',
-			numeralThousandsGroupStyle: 'thousand'
-		});
-		var cleave3 = new Cleave('.input-element3', {
-			numeral: true,
-			delimiter: '.',
-			numeralThousandsGroupStyle: 'thousand'
-		});
+		// var cleave = new Cleave('.input-element', {
+		// 	numeral: true,
+		// 	delimiter: '.',
+		// 	numeralThousandsGroupStyle: 'thousand'
+		// });
+		// var cleave1 = new Cleave('.input-element1', {
+		// 	numeral: true,
+		// 	delimiter: '.',
+		// 	numeralThousandsGroupStyle: 'thousand'
+		// });
+		// var cleave2 = new Cleave('.input-element2', {
+		// 	numeral: true,
+		// 	delimiter: '.',
+		// 	numeralThousandsGroupStyle: 'thousand'
+		// });
+		// var cleave3 = new Cleave('.input-element3', {
+		// 	numeral: true,
+		// 	delimiter: '.',
+		// 	numeralThousandsGroupStyle: 'thousand'
+		// });
 	</script>
 @endsection
 
