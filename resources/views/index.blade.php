@@ -157,13 +157,13 @@
             </div>
 
             <div class="col-lg-6 mb-4">
-              	<div class="donate_box">
-                	<div class="form-group">
-						<input type="file" name="bukti_transfer" id="bukti_transfer" hidden>
-						<input type="text" placeholder="Bukti Transfer (Boleh dikosongkan)" class="single-input" id="buktitransfer">
-						<span class="fs-14"><i class="fa fa-file"></i></span>
-					</div>
-				</div>
+              <div class="donate_box">
+                <div class="form-group">
+                  <input type="text" placeholder="Nomor HP (opsional)" oninvalid="invalidMsg(this)" 
+									oninput="invalidMsg(this)" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nomor HP (opsional)'" class="single-input" name="telp">
+                  <span class="fs-14"><i class="fa fa-phone"></i></span>
+                </div>
+              </div>
             </div>
 
             <div class="col-lg-6 mb-4">
@@ -185,12 +185,14 @@
 				</div>
             </div>
 
-
-			
             <div class="col-lg-6 mb-4">
-              <div class="donate_box">
-                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
-              </div>
+              	<div class="donate_box">
+                	<div class="form-group">
+						<input type="file" name="bukti_transfer" id="bukti_transfer" hidden>
+						<input type="text" placeholder="Bukti Transfer (Boleh dikosongkan)" class="single-input" id="buktitransfer">
+						<span class="fs-14"><i class="fa fa-file"></i></span>
+					</div>
+				</div>
             </div>
 
             <div class="col-lg-6 mb-4">
@@ -204,6 +206,13 @@
 					</div>
             	</div>
             </div>
+			
+            <div class="col-lg-6 mb-4">
+              <div class="donate_box">
+                <button type="submit" class="main_btn w-100">Laporkan Donasi</button>
+              </div>
+            </div>
+
           </div>
         </form>
       </div>

@@ -150,7 +150,7 @@
 									<td>Nama</td>
 									<td>E-Mail</td>
 									<td>Jumlah</td>
-									<!-- <td>Bank</td> -->
+									<td>HP</td>
 									<td>Tanggal</td>
 									<td>Status</td>
 									<td>Aksi</td>
@@ -171,6 +171,7 @@
 											@endif
 										@endforeach
 									</td>--}}
+									<td>{{ $d->telp }}</td>
 									<td>{{ tgl_indo($d->tanggal) }}</td>
 									<td>
 										@if($d->status == 0)

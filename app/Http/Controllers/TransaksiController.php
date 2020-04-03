@@ -48,10 +48,17 @@ class TransaksiController extends Controller
             $anon = 1;
         }
 
+        $data = explode(",", $request->jumlah);
+        $jumlah= "";
+        foreach($data as $d){
+            $jumlah .= $d;
+        }
+
          //Store DB
              $transaksi ->nama = $request->nama;
              $transaksi ->email = $request->email;
-             $transaksi ->jumlah = $request->jumlah;
+             $transaksi ->jumlah = (int)$jumlah;
+             $transaksi ->telp = $request->telp;
             //  $transaksi ->bank = $request->bank;
              $transaksi ->status = 0;
              $transaksi ->anonim = $anon;
