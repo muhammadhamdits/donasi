@@ -46,6 +46,13 @@
 	<!--================ Start important-points section =================-->
 	<section class="donation_details pad_top" id="overview">
 		<div class="container">
+			<div class="row justify-content-center section-title-wrap">
+				<div class="col-lg-12">
+					<h1>Total Donasi</h1>
+					<h3>Rp {{ number_format(($total->nagari+$total->bni+$total->bsm+$total->mandiri),2,',','.') }}</h3>
+				</div>
+			</div>
+
 		<form action="{{ route('admin.edit') }}" method="post">
 		@csrf
 			<div class="row">

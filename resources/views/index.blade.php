@@ -73,9 +73,8 @@
 			<div class="row justify-content-center section-title-wrap">
 				<div class="col-lg-12">
 					<h1>Total Donasi</h1>
-					<p>
-						Total Donasi yang telah dikumpulkan
-					</p>
+					<p>Total Donasi yang telah dikumpulkan</p>
+					<h3>Rp {{ number_format(($total->nagari+$total->bni+$total->bsm+$total->mandiri),2,',','.') }}</h3>
 				</div>
 			</div>
 
