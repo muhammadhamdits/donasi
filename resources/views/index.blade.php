@@ -150,8 +150,7 @@
             <div class="col-lg-6 mb-4">
               <div class="donate_box">
                 <div class="form-group">
-                  <input type="number" placeholder="Jumlah" oninvalid="invalidMsg(this)" 
-									oninput="invalidMsg(this)" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Jumlah' " class="single-input" name="jumlah" required>
+                  <input type="text" placeholder="Jumlah" oninvalid="invalidMsg(this)" onfocus="this.placeholder = '' " onblur="this.placeholder = 'Jumlah' " class="single-input" id="jumlah" name="jumlah" required>
                   <span class="fs-14">Rp</span>
                 </div>
               </div>
@@ -301,6 +300,13 @@
 				textbox.setCustomValidity(''); 
 			} 
        return true; 
+		}
+
+		$("#jumlah").on('keyup', formnum);
+
+		function formnum(){
+			var n = parseInt($(this).val().replace(/\D/g,''),10);
+			$(this).val(n.toLocaleString());
 		}
 
 	</script>

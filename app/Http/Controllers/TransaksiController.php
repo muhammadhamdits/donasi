@@ -70,11 +70,31 @@ class TransaksiController extends Controller
     public function edit(Request $request)
     {
         // dd($request->all());
+        $data = explode(",", $request->nagari);
+        $nagari= "";
+        foreach($data as $d){
+            $nagari .= $d;
+        }
+        $data = explode(",", $request->bni);
+        $bni= "";
+        foreach($data as $d){
+            $bni .= $d;
+        }
+        $data = explode(",", $request->bsm);
+        $bsm= "";
+        foreach($data as $d){
+            $bsm .= $d;
+        }
+        $data = explode(",", $request->mandiri);
+        $mandiri= "";
+        foreach($data as $d){
+            $mandiri .= $d;
+        }
         DB::table('totals')->where('id', 1)->update([
-            'nagari' => $request->nagari,
-            'bni' => $request->bni,
-            'bsm' => $request->bsm,
-            'mandiri' => $request->mandiri
+            'nagari' => (int)$nagari,
+            'bni' => (int)$bni,
+            'bsm' => (int)$bsm,
+            'mandiri' => (int)$mandiri
         ]);
         toastr()->success('Data telah diperbaharui');
         return redirect(route('admin.home'));

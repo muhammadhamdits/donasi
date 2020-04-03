@@ -61,13 +61,12 @@
 					<!-- <h4>Bank Nagari</h4> -->
 					<img class="mb-4" src="{{ asset('img/clients-logo/nagari.png') }}" alt="" height="60">
 					<p class="mt-3">Jumlah</p>
-					{{--<input type="text" name="nagari" id="nagari" class="form-control  input-element" value="{{ $total->nagari }}">--}}
 					<div class="input-group-icon mt-10">
 						<div class="icon">
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="number" name="nagari" id="nagari" class="form-control single-input input-element" value="{{ $total->nagari }}">
+						<input type="text" name="nagari" id="nagari" class="form-control single-input formnum" value="{{ $total->nagari }}">
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
@@ -80,7 +79,7 @@
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="number" name="bni" id="bni" class="form-control single-input input-element1" value="{{ $total->bni }}">
+						<input type="text" name="bni" id="bni" class="form-control single-input formnum" value="{{ $total->bni }}">
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
@@ -93,7 +92,7 @@
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="number" name="bsm" id="bsm" class="form-control single-input input-element2" value="{{ $total->bsm }}">
+						<input type="text" name="bsm" id="bsm" class="form-control single-input formnum" value="{{ $total->bsm }}">
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6 single_donation_box">
@@ -106,7 +105,7 @@
 							<!-- <i class="fa fa-thumb-tack" aria-hidden="true"></i> -->
 							Rp
 						</div>
-						<input type="number" name="mandiri" id="mandiri" class="form-control single-input input-element3" value="{{ $total->mandiri }}">
+						<input type="text" name="mandiri" id="mandiri" class="form-control single-input formnum" value="{{ $total->mandiri }}">
 					</div>
 				</div>
 			</div>
@@ -501,6 +500,15 @@
                 url += "/2";
                 form.attr('action', url);
             });
+			
+			let nagari = parseInt($("#nagari").val().replace(/\D/g,''),10);
+			let bni = parseInt($("#bni").val().replace(/\D/g,''),10);
+			let bsm = parseInt($("#bsm").val().replace(/\D/g,''),10);
+			let mandiri = parseInt($("#mandiri").val().replace(/\D/g,''),10);
+			$("#nagari").val(nagari.toLocaleString());
+			$("#bni").val(bni.toLocaleString());
+			$("#bsm").val(bsm.toLocaleString());
+			$("#mandiri").val(mandiri.toLocaleString());
 		});
 
 		$(".modalbank").click(function(){
@@ -527,6 +535,15 @@
         span.onclick = function() {
         	modal.style.display = "none";
         }
+
+		$(".formnum").on('keyup', formnum);
+
+		function formnum(){
+			var n = parseInt($(this).val().replace(/\D/g,''),10);
+			$(this).val(n.toLocaleString());
+			//do something else as per updated question
+			// myFunc(); //call another function too
+		}
 
 		// var cleave = new Cleave('.input-element', {
 		// 	numeral: true,
