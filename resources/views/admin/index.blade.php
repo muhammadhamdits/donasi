@@ -506,10 +506,10 @@
 			let bni = parseInt($("#bni").val().replace(/\D/g,''),10);
 			let bsm = parseInt($("#bsm").val().replace(/\D/g,''),10);
 			let mandiri = parseInt($("#mandiri").val().replace(/\D/g,''),10);
-			$("#nagari").val(nagari.toLocaleString('en-US'));
-			$("#bni").val(bni.toLocaleString('en-US'));
-			$("#bsm").val(bsm.toLocaleString('en-US'));
-			$("#mandiri").val(mandiri.toLocaleString('en-US'));
+			$("#nagari").val(nagari.toLocaleString('id-ID'));
+			$("#bni").val(bni.toLocaleString('id-ID'));
+			$("#bsm").val(bsm.toLocaleString('id-ID'));
+			$("#mandiri").val(mandiri.toLocaleString('id-ID'));
 		});
 
 		$(".modalbank").click(function(){
@@ -541,7 +541,7 @@
 
 		function formnum(){
 			var n = parseInt($(this).val().replace(/\D/g,''),10);
-			$(this).val(n.toLocaleString('en-US'));
+			$(this).val(n.toLocaleString('id-ID'));
 			//do something else as per updated question
 			// myFunc(); //call another function too
 		}

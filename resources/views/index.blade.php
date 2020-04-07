@@ -315,7 +315,7 @@
 
 		function formnum(){
 			var n = parseInt($(this).val().replace(/\D/g,''),10);
-			$(this).val(n.toLocaleString('en-US'));
+			$(this).val(n.toLocaleString('id-ID'));
 		}
 
 	</script>

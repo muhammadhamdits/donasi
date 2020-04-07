@@ -48,7 +48,7 @@ class TransaksiController extends Controller
             $anon = 1;
         }
 
-        $data = explode(",", $request->jumlah);
+        $data = explode(".", $request->jumlah);
         $jumlah= "";
         foreach($data as $d){
             $jumlah .= $d;
@@ -77,22 +77,22 @@ class TransaksiController extends Controller
     public function edit(Request $request)
     {
         // dd($request->all());
-        $data = explode(",", $request->nagari);
+        $data = explode(".", $request->nagari);
         $nagari= "";
         foreach($data as $d){
             $nagari .= $d;
         }
-        $data = explode(",", $request->bni);
+        $data = explode(".", $request->bni);
         $bni= "";
         foreach($data as $d){
             $bni .= $d;
         }
-        $data = explode(",", $request->bsm);
+        $data = explode(".", $request->bsm);
         $bsm= "";
         foreach($data as $d){
             $bsm .= $d;
         }
-        $data = explode(",", $request->mandiri);
+        $data = explode(".", $request->mandiri);
         $mandiri= "";
         foreach($data as $d){
             $mandiri .= $d;
