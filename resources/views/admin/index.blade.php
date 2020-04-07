@@ -184,9 +184,12 @@
 									</td>
 									<td>
 										@if($d->status == 0)
-										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
 											@csrf
 											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+										</form>
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
+											@csrf
 											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
 										</form>
 										@endif
@@ -236,9 +239,12 @@
 									</td>
 									<td>
 										@if($d->status == 0)
-										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
 											@csrf
 											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+										</form>
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
+											@csrf
 											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
 										</form>
 										@endif
@@ -287,9 +293,12 @@
 									</td>
 									<td>
 										@if($d->status == 0)
-										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
 											@csrf
 											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+										</form>
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
+											@csrf
 											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
 										</form>
 										@endif
@@ -338,9 +347,12 @@
 									</td>
 									<td>
 										@if($d->status == 0)
-										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
 											@csrf
 											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+										</form>
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
+											@csrf
 											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
 										</form>
 										@endif
@@ -389,9 +401,12 @@
 									</td>
 									<td>
 										@if($d->status == 0)
-										<form action="{{ route('admin.accept', ['id' => $d->id, 'status' => 0]) }}" method="post">
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
 											@csrf
 											<button class="genric-btn success-border circle small accepted" title="Setujui"><i class="fa fa-check"></i></button>
+										</form>
+										<form style="display: inline" action="{{ route('admin.accept', ['id' => $d->id, 'status' => 1]) }}" method="post">
+											@csrf
 											<button class="genric-btn danger-border circle small rejected" title="Tolak"><i class="fa fa-times"></i></button>
 										</form>
 										@endif
@@ -478,29 +493,31 @@
                 form.submit();
             });
 
-            $(".accepted").click(function(){
-				this.preventDefault;
-				$(this).preventDefault;
-				// console.log('url');
-                let form = $(this).parent();
-                let url = form.attr('action');
-                let tmp = url.split("/");
+            // $(".accepted").click(function(){
+			// 	// this.preventDefault;
+			// 	// $(this).preventDefault;
+			// 	// // console.log('url');
+            //     // let form = $(this).parent();
+            //     // let url = form.attr('action');
+            //     // let tmp = url.split("/");
     
-                tmp.pop();
-                url = tmp.join("/");
-                url += "/1";
-                form.attr('action', url);
-            });
-            $(".rejected").click(function(){
-                let form = $(this).parent();
-                let url = form.attr('action');
-                let tmp = url.split("/");
+            //     // tmp.pop();
+            //     // url = tmp.join("/");
+            //     // url += "/1";
+            //     // form.attr('action', url);
+			// 	// form.submit();
+            // });
+            // $(".rejected").click(function(){
+            //     let form = $(this).parent();
+            //     let url = form.attr('action');
+            //     let tmp = url.split("/");
     
-                tmp.pop();
-                url = tmp.join("/");
-                url += "/2";
-                form.attr('action', url);
-            });
+            //     tmp.pop();
+            //     url = tmp.join("/");
+            //     url += "/2";
+            //     form.attr('action', url);
+			// 	form.submit();
+            // });
 			
 			let nagari = parseInt($("#nagari").val().replace(/\D/g,''),10);
 			let bni = parseInt($("#bni").val().replace(/\D/g,''),10);
